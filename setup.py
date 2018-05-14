@@ -3,7 +3,7 @@ import sys
 import unittest
 
 
-class TestContext(unittest.TestCase):
+class TestSetup(unittest.TestCase):
 
     def testWriteInPATH(self):
         sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './code')))
@@ -12,7 +12,7 @@ class TestContext(unittest.TestCase):
             print(PathName)
         print("================================================================================\n\n")
         self.assertIn(str(os.path.abspath(os.path.join(os.path.dirname(__file__), './code'))), sys.path,
-                      "The path containing the modules were not added.")
+                      "The path containing the code files was not added.")
 
     def testPathExists(self):
         self.assertTrue(os.path.exists(str(os.path.abspath(os.path.join(os.path.dirname(__file__), './code')))),
