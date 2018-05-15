@@ -1,5 +1,5 @@
 # Basic test for example
-import unittest
+from setup import *
 from code import exemple
 
 

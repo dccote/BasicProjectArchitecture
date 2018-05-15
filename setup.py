@@ -10,7 +10,7 @@ except ImportError:
     print("One of the package is missing or couldn't be loaded")
 
 # SETUP OF LINKS FOR THE PROJECT FOLDER
-#sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './')))
 
 # SETUP OF THE LINKS FOR THE CODE FOLDER
 codeFolderNameSetup = input("Enter the name of the folder containing your code:")
