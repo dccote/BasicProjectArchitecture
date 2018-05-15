@@ -1,13 +1,18 @@
 try:
+    import traceback
     import os
     import sys
     import numpy
     import scipy
     import matplotlib
     import unittest
-
+    import selenium
+    import urllib
+    print("All imports achieved successfully")
 except ImportError:
-    print("One of the package is missing or couldn't be loaded")
+    print("A package or module is not installed or doesn't exist. Please ensure all packages are installed."
+          " use <python -m pip install 'moduleName'> and relaunch setup.py")
+    exit(1)
 
 if __name__ == "__main__":
     # SETUP OF LINKS FOR THE PROJECT FOLDER
