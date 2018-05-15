@@ -14,7 +14,7 @@ except ImportError:
 
 # SETUP OF THE LINKS FOR THE CODE FOLDER
 codeFolderNameSetup = input("Enter the name of the folder containing your code:")
-codeFolderNameSetup = "../" + str(codeFolderNameSetup)
+codeFolderNameSetup = "./" + str(codeFolderNameSetup)
 codeFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), codeFolderNameSetup)))
 
 if os.path.exists(codeFolderPathNameSetup):
