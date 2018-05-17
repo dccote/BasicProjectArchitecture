@@ -12,8 +12,8 @@ class TestExample(unittest.TestCase):
     	with self.assertRaises(Exception):
 	        recommendedModulesAreInstalled()
 
-    def testPrintPath(self):
-    	print(sys.path)
+    # def testPrintPath(self):
+    # 	print(sys.path)
 
     def testWhatIsPath(self):
     	self.assertTrue(sys.path.count != 0)
@@ -25,10 +25,27 @@ class TestExample(unittest.TestCase):
     	self.assertTrue(re.search('dccote', '/Users/dccote'))
 
     def testUsernameIsFirstElement(self):
-    	username = os.environ['USER']
-    	print(username)
-    	self.assertTrue(username)
-    	self.assertTrue(re.search(username, sys.path[0]))
+     	username = os.environ['USER']
+     	self.assertTrue(username)
+     	self.assertTrue(re.search(username, sys.path[0]))
+
+    def testInsertIntoPathManually(self):
+    	savePath = sys.path[:] # Copy elements, not reference
+    	somePath = '/tmp/blabla'
+    	sys.path.insert(0,somePath)
+    	self.assertEqual(sys.path[0], somePath)
+    	self.assertNotEqual(savePath, sys.path)
+    	sys.path.remove(somePath)
+    	self.assertEqual(savePath, sys.path)
+
+    def testInsertIntoPath(self):
+    	savePath = sys.path[:] # Copy elements, not reference
+    	somePath = '/tmp/blabla'
+    	setup.insertAtFrontOfUserPATH(somePath)
+    	self.assertEqual(sys.path[0], somePath)
+    	self.assertNotEqual(savePath, sys.path)
+    	setup.removeFromUserPATH(somePath)
+    	self.assertEqual(savePath, sys.path)
 
 if __name__ == '__main__':
     unittest.main()

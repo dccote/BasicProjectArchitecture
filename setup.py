@@ -21,7 +21,7 @@ def insertAtFrontOfUserPATH(directoryPath):
     sys.path.insert(0, directoryPath)
 
 def removeFromUserPATH(directoryPath):
-    sys.path.remove(directory)
+    sys.path.remove(directoryPath)
 
 
 if __name__ == "__main__":
