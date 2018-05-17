@@ -15,11 +15,18 @@ def recommendedModulesAreInstalled():
 
 def requestCodeRoot():
     codeFolderNameSetup = input("Enter the name of the folder containing your code:")
-
     return codeFolderNameSetup
+
+def insertAtFrontOfUserPATH(directoryPath):
+    sys.path.insert(0, directoryPath)
+
+def removeFromUserPATH(directoryPath):
+    sys.path.remove(directory)
 
 
 if __name__ == "__main__":
+    addToUserPath()
+
     # SETUP OF LINKS FOR THE PROJECT FOLDER
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './')))
     codeFolderNameSetup = requestCodeRoot()
