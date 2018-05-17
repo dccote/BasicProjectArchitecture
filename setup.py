@@ -1,18 +1,17 @@
-try:
+import os
+import sys
 
-    import os
-    import sys
-#    import traceback
-#    import numpy
-#    import scipy
-#    import matplotlib
-#    import urllib
-#    import unittest
-    print("All imports achieved successfully")
-except ImportError:
-    print("A package or module is not installed or doesn't exist. Please ensure all packages are installed."
-          " use <python -m pip install 'moduleName'> and relaunch setup.py")
-    exit(1)
+def recommendedModulesAreInstalled():
+    try:
+        import traceback
+        import numpy
+        import scipy
+        import matplotlib
+        import urllib
+        import unittest
+    except ImportError:
+        return False
+    return True    
 
 def requestCodeRoot():
     codeFolderNameSetup = input("Enter the name of the folder containing your code:")
