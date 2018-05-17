@@ -30,11 +30,13 @@ def removeFromUserPATH(directoryPath):
 
 if __name__ == "__main__":
     rootFolder = os.path.dirname(__file__)
-    codeFolder = 'code'
-    testFolder = 'tests'
+    codeFolder = 'code' # FIXME: Should pass on argument line
+    testFolder = 'tests' # FIXME: Should pass on argument line
 
-    codeFolder = requestCodeRoot()
-    testFolder = requestTestRoot()
+    if not codeFolder:
+        codeFolder = requestCodeFolder()
+    if not testFolder:       
+        testFolder = requestTestFolder()
 
     # SETUP OF THE LINKS FOR THE CODE FOLDER
     codeFolder = "./" + str(codeFolder)
@@ -67,7 +69,6 @@ if __name__ == "__main__":
                 print("Command was not recognized. Please enter 'yes' or 'no'.\n")
 
     # SETUP OF THE LINKS FOR THE TEST FOLDER
-    testFolder = requestTestRoot()
     testFolder = "./" + str(testFolder)
     testFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), testFolder)))
 
