@@ -13,9 +13,13 @@ def recommendedModulesAreInstalled():
         return False
     return True    
 
-def requestCodeRoot():
-    codeFolderNameSetup = input("Enter the name of the folder containing your code:")
-    return codeFolderNameSetup
+def requestCodeFolder():
+    codeFolder = input("Enter the name of the folder containing your code:")
+    return codeFolder
+
+def requestTestFolder():
+    testFolder = input("Enter the name of the folder containing your tests:")
+    return testFolder
 
 def insertAtFrontOfUserPATH(directoryPath):
     sys.path.insert(0, directoryPath)
@@ -25,15 +29,16 @@ def removeFromUserPATH(directoryPath):
 
 
 if __name__ == "__main__":
-    addToUserPath()
+    rootFolder = os.path.dirname(__file__)
+    codeFolder = 'code'
+    testFolder = 'tests'
 
-    # SETUP OF LINKS FOR THE PROJECT FOLDER
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './')))
-    codeFolderNameSetup = requestCodeRoot()
+    codeFolder = requestCodeRoot()
+    testFolder = requestTestRoot()
 
     # SETUP OF THE LINKS FOR THE CODE FOLDER
-    codeFolderNameSetup = "./" + str(codeFolderNameSetup)
-    codeFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), codeFolderNameSetup)))
+    codeFolder = "./" + str(codeFolder)
+    codeFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), codeFolder)))
 
     if os.path.exists(codeFolderPathNameSetup):
         sys.path.insert(0, codeFolderPathNameSetup)
@@ -62,9 +67,9 @@ if __name__ == "__main__":
                 print("Command was not recognized. Please enter 'yes' or 'no'.\n")
 
     # SETUP OF THE LINKS FOR THE TEST FOLDER
-    testFolderNameSetup = input("Enter the name of the folder containing your tests:")
-    testFolderNameSetup = "./" + str(testFolderNameSetup)
-    testFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), testFolderNameSetup)))
+    testFolder = requestTestRoot()
+    testFolder = "./" + str(testFolder)
+    testFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), testFolder)))
 
     if os.path.exists(testFolderPathNameSetup):
         sys.path.insert(0, testFolderPathNameSetup)
