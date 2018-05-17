@@ -1,25 +1,31 @@
 try:
-    import traceback
+
     import os
     import sys
-    import numpy
-    import scipy
-    import matplotlib
-    import unittest
-    import selenium
-    import urllib
+#    import traceback
+#    import numpy
+#    import scipy
+#    import matplotlib
+#    import urllib
+#    import unittest
     print("All imports achieved successfully")
 except ImportError:
     print("A package or module is not installed or doesn't exist. Please ensure all packages are installed."
           " use <python -m pip install 'moduleName'> and relaunch setup.py")
     exit(1)
 
+def requestCodeRoot():
+    codeFolderNameSetup = input("Enter the name of the folder containing your code:")
+
+    return codeFolderNameSetup
+
+
 if __name__ == "__main__":
     # SETUP OF LINKS FOR THE PROJECT FOLDER
     sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), './')))
+    codeFolderNameSetup = requestCodeRoot()
 
     # SETUP OF THE LINKS FOR THE CODE FOLDER
-    codeFolderNameSetup = input("Enter the name of the folder containing your code:")
     codeFolderNameSetup = "./" + str(codeFolderNameSetup)
     codeFolderPathNameSetup = (os.path.abspath(os.path.join(os.path.dirname(__file__), codeFolderNameSetup)))
 
@@ -89,4 +95,6 @@ if __name__ == "__main__":
     for setupPathName in sys.path:
         print(setupPathName, sys.path.count(setupPathName))
     print("================================================================================\n\n")
+
+
 
